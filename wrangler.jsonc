@@ -1,6 +1,11 @@
 {
+	"kv_namespaces": [
+	{ "binding": "SESSION", "id": "6d2211f5ef6a4e12bec34102c7d5d529" }
+	],
 	"compatibility_date": "2026-04-30",
-	"compatibility_flags": ["global_fetch_strictly_public"],
+	"compatibility_flags": [
+		"global_fetch_strictly_public"
+	],
 	"name": "astrofolio",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
