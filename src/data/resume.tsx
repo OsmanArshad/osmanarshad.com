@@ -38,7 +38,7 @@ export const DATA = {
   location: "San Francisco Bay Area",
   locationLink: "https://www.google.com/maps/place/san+francisco+bay+area",
   description:
-    "Site Reliability Engineer with 6 years building reliable, observable infrastructure for high-availability payment platforms.",
+    "Site Reliability Engineer",
   summary:
     "I spent 6 years at Yapstone as an SRE, growing from engineer to SRE III while owning reliability for payment infrastructure processing billions in annual transaction volume. I led observability platform development, incident response, and cloud cost optimization across 1500+ AWS hosts. Since leaving in 2024 I've been building a [production-grade Kubernetes homelab](/#projects) to develop modern k8s-native SRE skills — GitOps with ArgoCD, full observability with Prometheus/Loki/Grafana, and Ansible-automated bare metal provisioning.",
   avatarUrl: "/avatar.jpg", // Replace with your actual photo in /public/avatar.jpg
