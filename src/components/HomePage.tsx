@@ -2,6 +2,7 @@ import React from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
@@ -107,6 +108,7 @@ education: (
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">{DATA.sections.skills.heading}</h2>
           </BlurFade>
+          <TooltipProvider delayDuration={150}>
           {DATA.skills.map((category, catId) => (
             <BlurFade key={category.category} delay={BLUR_FADE_DELAY * 10 + catId * 0.1}>
               <div className="flex flex-col gap-2">
@@ -114,18 +116,33 @@ education: (
                   {category.category}
                 </span>
                 <div className="flex flex-wrap gap-2">
-                  {category.items.map((skill, id) => (
-                    <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + catId * 0.1 + id * 0.05}>
-                      <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                        {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                        <span className="text-foreground text-sm font-medium">{skill.name}</span>
-                      </div>
-                    </BlurFade>
-                  ))}
+{category.items.map((skill, id) => {
+  const pill = (
+    <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
+      {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
+      <span className="text-foreground text-sm font-medium">{skill.name}</span>
+    </div>
+  );
+  return (
+    <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + catId * 0.1 + id * 0.05}>
+      {skill.description ? (
+        <Tooltip>
+          <TooltipTrigger asChild>{pill}</TooltipTrigger>
+          <TooltipContent className="max-w-xs text-center">
+            {skill.description}
+          </TooltipContent>
+        </Tooltip>
+      ) : (
+        pill
+      )}
+    </BlurFade>
+  );
+})}
                 </div>
               </div>
             </BlurFade>
           ))}
+        </TooltipProvider>
         </div>
       </section>
     ),

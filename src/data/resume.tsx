@@ -81,7 +81,7 @@ export const DATA = {
       category: "Infrastructure & Cloud",
       items: [
         { name: "AWS", icon: localIcon("/aws.ico") },
-        { name: "Kubernetes", icon: Kubernetes },
+        { name: "Kubernetes", icon: Kubernetes, description: "Run a 4-node k3s cluster with Calico CNI, MetalLB, cert-manager PKI, and ArgoCD GitOps." }, 
         { name: "Docker", icon: Docker },
         { name: "Terraform", icon: si("terraform") },
         { name: "Ansible", icon: si("ansible") },
